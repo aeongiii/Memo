@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@RestController // Bean 객체로 관리. @Component보다 더 명확한 역할 부여
 @RequestMapping("/api")
 public class MemoController {
 

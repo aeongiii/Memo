@@ -7,6 +7,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,9 +16,13 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
 
+// @Component라고 달아도 되지만, 레포지토리 역할을 확실하게 의미하도록 @Repository 애너테이션을 달아서 Bean 객체로 등록하고 Service에 주입한다.
+@Repository
 public class MemoRepository {
 
     private final JdbcTemplate jdbcTemplate;
+
+    // JdbcTemplate -> MemoRepository -> MemoService -> MemoController 순. (제어의 역전, 의존성 주입)
     public MemoRepository(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
