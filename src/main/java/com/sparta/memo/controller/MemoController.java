@@ -2,6 +2,7 @@ package com.sparta.memo.controller;
 
 import com.sparta.memo.dto.MemoRequestDto;
 import com.sparta.memo.dto.MemoResponseDto;
+import com.sparta.memo.entity.Memo;
 import com.sparta.memo.service.MemoService;
 import org.springframework.web.bind.annotation.*;
 
@@ -43,6 +44,12 @@ public class MemoController {
 
         return memoService.deleteMemo(id);
 
+    }
+
+
+    @GetMapping("/memos/contents")              // @RequestParam 생략 가능
+    public List<MemoResponseDto> getMemosByKeyword(String keyword) {
+        return memoService.getMemosByKeyword(keyword);
     }
 
 
