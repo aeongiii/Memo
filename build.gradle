@@ -24,6 +24,14 @@ repositories {
 }
 
 dependencies {
+
+    // JPA 설정
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    // MySQL
+    implementation 'mysql:mysql-connector-java:8.0.28'
+//    implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     compileOnly 'org.projectlombok:lombok'
@@ -32,10 +40,7 @@ dependencies {
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
 
-    // MySQL
-    implementation 'mysql:mysql-connector-java:8.0.28'
-    implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
-}
+    }
 
 tasks.named('test') {
     useJUnitPlatform()
